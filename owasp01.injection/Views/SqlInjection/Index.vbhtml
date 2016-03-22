@@ -53,8 +53,9 @@ Next
     </ol>
     <h3>Extract Data</h3>
     <ol>
+        <li>@Html.ActionLink("Transfer Table Names", "Index", New With {.CategoryId = "1;INSERT INTO Products(productname) select name from sys.tables"})</li>
         <li>@Html.ActionLink("Transfer Customer Data", "Index", New With {.CategoryId = "1;INSERT INTO Products(productname) SELECT companyname FROM Customers"})</li>
-        <li>@Html.ActionLink("Retrieve Customer Data", "Index", New With {.CategoryId = "500 OR CategoryId IS NULL"})</li>
+        <li>@Html.ActionLink("Retrieve Transferred Data", "Index", New With {.CategoryId = "500 OR CategoryId IS NULL"})</li>
     </ol>
     <h3>Delete Data</h3>
     <ol>
