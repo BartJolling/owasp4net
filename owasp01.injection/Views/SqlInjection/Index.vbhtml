@@ -1,4 +1,4 @@
-﻿@ModelType IEnumerable(Of owasp01.injection.Product)
+﻿@ModelType IEnumerable(Of owasp01.injection.data.Product)
 @Code
 ViewData("Title") = "Index"
 End Code
@@ -60,5 +60,12 @@ Next
     <h3>Delete Data</h3>
     <ol>
         <li>@Html.ActionLink("Clean Customer Data", "Index", New With {.CategoryId = "1;DELETE Products WHERE CategoryId IS NULL"})</li>
+    </ol>
+    <h3>Guidelines</h3>
+    <ol>
+        <li>@Html.ActionLink("Input Validation - Cannot append SQL Statements", "InputValidation", New With {.CategoryId = "1 OR productname = ''"})</li>
+        <li>@Html.ActionLink("Read-Only User - Cannot Transfer Data", "ReadOnlyUser", New With {.CategoryId = "1;INSERT INTO Products(productname) SELECT companyname FROM Customers"})</li>
+        <li>@Html.ActionLink("SQL Parameters - Cannot execute data", "SQLParameters", New With {.CategoryId = "1 OR productname = ''"})</li>
+        <li>@Html.ActionLink("All Guidelines Combined", "Safe", New With {.CategoryId = "1 OR productname = ''"})</li>
     </ol>
 </p>

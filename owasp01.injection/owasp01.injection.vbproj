@@ -206,7 +206,7 @@
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\ManageViewModels.vb" />
-    <Compile Include="Models\SqlInjection\Product.vb" />
+    <Compile Include="Models\SqlInjection\ProductCategoryViewModel.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -314,6 +314,12 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\owasp01.injection.data\owasp01.injection.data.vbproj">
+      <Project>{57777819-c175-4fbf-be0a-e8c76954400e}</Project>
+      <Name>owasp01.injection.data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
