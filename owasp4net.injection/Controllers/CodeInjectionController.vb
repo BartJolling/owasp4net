@@ -1,6 +1,7 @@
 ﻿Imports System.Net
 Imports System.Web.Mvc
 Imports owasp4net.injection.data
+Imports owasp4net.injection.CustomerMapper
 
 Namespace Controllers
     Public Class CodeInjectionController
@@ -49,17 +50,27 @@ Namespace Controllers
             Dim connectionString = ConfigurationManager.ConnectionStrings("NorthWindReadOnly").ConnectionString
 
             Dim northwindRepo As INorthWindRepository = New NorthWindRepositorySafe(connectionString)
-            Dim customer = northwindRepo.LoadCustomerById(id)
+            Dim customerViewModel = northwindRepo.LoadCustomerById(id).ToViewModel()
+
 
             ViewData("url") = Server.UrlDecode(Request.Url.ToString())
-            Return View("Edit", customer)
+            Return View("Edit", customerViewModel)
         End Function
 
         ' POST: CodeInjection/Edit/5
         <HttpPost()>
-        Function Edit(ByVal id As Integer, ByVal collection As FormCollection) As ActionResult
+        Function Edit(<Bind(Include:="CustomerId,CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,Fax")> ByVal customerViewModel As CustomerViewModel) As ActionResult
+
+            If Not ModelState.IsValid Then
+                Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
+            End If
+
             Try
                 ' TODO: Add update logic here
+                Dim connectionString = ConfigurationManager.ConnectionStrings("NorthWindReadWrite").ConnectionString
+                Dim northwindRepo As INorthWindRepository = New NorthWindRepositorySafe(connectionString)
+
+                northwindRepo.SaveCustomer(customerViewModel.ToDomainModel())
 
                 Return RedirectToAction("Index")
             Catch

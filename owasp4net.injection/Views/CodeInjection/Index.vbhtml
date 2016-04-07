@@ -3,11 +3,14 @@
     ViewData("Title") = "Customers"
 End Code
 
+<script src="/Scripts/jquery-1.10.2.js"></script>
+
 <h2>Customers</h2>
 
 @*<p>
     @Html.ActionLink("Create New", "Create")
 </p>*@
+
 <table class="table">
     <tr>
         <th>Customer Id</th>
@@ -21,6 +24,7 @@ End Code
         <th>Country</th>
         <th>Phone</th>
         <th>Fax</th>
+        <th>Action</th>
     </tr>
 
 @For Each item In Model
@@ -29,7 +33,7 @@ End Code
          <td>@item.CompanyName</td>
          <td>@item.ContactName</td>
          <td>@item.ContactTitle</td>
-         <td>@item.Address</td>
+         <td>@Html.Raw(item.Address)</td>
          <td>@item.City</td>
          <td>@item.Region</td>
          <td>@item.PostalCode</td>

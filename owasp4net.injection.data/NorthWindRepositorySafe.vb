@@ -97,4 +97,47 @@ Public Class NorthWindRepositorySafe
                     .Fax = CStr(If(IsDBNull(reader(10)), Nothing, reader(10)))
                 }
     End Function
+
+    Public Sub SaveCustomer(customer As Customer) Implements INorthWindRepository.SaveCustomer
+
+        Using connection = New SqlConnection(Me._connectionString)
+            Dim command As New SqlCommand("UPDATE [dbo].[Customers]
+                SET [CompanyName] = @CompanyName
+                   ,[ContactName] = @ContactName
+                   ,[ContactTitle] = @ContactTitle
+                   ,[Address] = @Address
+                   ,[City] = @City
+                   ,[Region] = @Region
+                   ,[PostalCode] = @PostalCode
+                   ,[Country] = @Country
+                   ,[Phone] = @Phone
+                   ,[Fax] = @Fax
+                WHERE [CustomerId] = @CustomerId", connection)
+
+            command.Parameters.Add(New SqlParameter("CompanyName", customer.CompanyName))
+            command.Parameters.Add(New SqlParameter("ContactName", customer.ContactName))
+            command.Parameters.Add(New SqlParameter("ContactTitle", customer.ContactTitle))
+            command.Parameters.Add(New SqlParameter("Address", customer.Address))
+            command.Parameters.Add(New SqlParameter("City", customer.City))
+            command.Parameters.Add(New SqlParameter("Region", customer.Region))
+            command.Parameters.Add(New SqlParameter("PostalCode", customer.PostalCode))
+            command.Parameters.Add(New SqlParameter("Country", customer.Country))
+            command.Parameters.Add(New SqlParameter("Phone", customer.Phone))
+            command.Parameters.Add(New SqlParameter("Fax", customer.Fax))
+            command.Parameters.Add(New SqlParameter("CustomerId", customer.CustomerId))
+
+            Dim rowsAffected As Integer = 0
+            Try
+                command.Connection.Open()
+                rowsAffected = command.ExecuteNonQuery()
+
+            Catch ex As Exception
+                Throw New Exception("Error during update of record with id " + customer.CustomerId, ex)
+            End Try
+
+            If rowsAffected <> 1 Then
+                Throw New Exception("Error during update of record with id " + customer.CustomerId)
+            End If
+        End Using
+    End Sub
 End Class

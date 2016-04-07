@@ -55,4 +55,8 @@ Public Class NorthWindRepositoryUnsafe
     Public Function LoadCustomerById(customerId As String) As Customer Implements INorthWindRepository.LoadCustomerById
         Throw New NotImplementedException()
     End Function
+
+    Public Sub SaveCustomer(customer As Customer) Implements INorthWindRepository.SaveCustomer
+        Throw New NotImplementedException()
+    End Sub
 End Class
