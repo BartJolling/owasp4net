@@ -1,0 +1,49 @@
+﻿@model IEnumerable<owasp4net.injection.domain.Customer>
+
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<h2>Customers</h2>
+
+<p>
+    @Html.ActionLink("⇐ Back Home", "Index", "Home")
+</p>
+
+<table class="table">
+    <tr>
+        <th>Customer Id</th>
+        <th>Company Name</th>
+        <th>Contact Name</th>
+        <th>Contact Title</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Region</th>
+        <th>Postal Code</th>
+        <th>Country</th>
+        <th>Phone</th>
+        <th>Fax</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach(var item in Model) {    
+    <tr>
+        <td>@item.CustomerId</td>
+        <td>@item.CompanyName</td>
+        <td>@item.ContactName</td>
+        <td>@item.ContactTitle</td>
+        <td>@Html.Raw(item.Address)</td>
+        <td>@item.City</td>
+        <td>@item.Region</td>
+        <td>@item.PostalCode</td>
+        <td>@item.Country</td>
+        <td>@item.Phone</td>
+        <td>@item.Fax</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.CustomerId})
+        </td>
+    </tr>
+    }
+</table>

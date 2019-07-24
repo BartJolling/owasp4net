@@ -1,0 +1,71 @@
+﻿@model owasp4net.injection.Models.CustomerViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<div>
+    @Html.ActionLink("⇐ Back to List", "Index")
+</div>
+
+@using(Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h4>Edit existing customer record</h4>
+    <hr />
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    <div class="form-group row">
+        @Html.LabelFor(c => c.CompanyName, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(c => c.CompanyName, new { @class = "form-control col-sm-10" })
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(c => c.ContactName, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(c => c.ContactName, new { @class = "form-control col-sm-10" })
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(c => c.ContactTitle, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(c => c.ContactTitle, new { @class = "form-control col-sm-10" })
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(c => c.Address, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(c => c.Address, new { @class = "form-control col-sm-10" })
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(c => c.City, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(c => c.City, new { @class = "form-control col-sm-10" })
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(c => c.Region, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(c => c.Region, new { @class = "form-control col-sm-10" })
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(c => c.PostalCode, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(c => c.PostalCode, new { @class = "form-control col-sm-10" })
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(c => c.Country, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(c => c.Country, new { @class = "form-control col-sm-10" })
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(c => c.Phone, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(c => c.Phone, new { @class = "form-control col-sm-10" })
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(c => c.Fax, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(c => c.Fax, new { @class = "form-control col-sm-10" })
+    </div>
+    <div class="form-group row">
+        @Html.HiddenFor(c => c.CustomerId, new { @class = "form-control col-sm-10" })
+        <input type="submit" value="Save" class="btn btn-success col-sm-offset-2" col-sm-10 />
+    </div>  
+}
+
+<p>
+    <h3>Script Injection</h3>
+    Insert below statement in the address field. It will replace the link to the start page with one to google.com
+    <pre>@("<script>$(\"a[href='/']\").attr(\"href\",\"http://www.google.com\")</script>")</pre>
+</p>

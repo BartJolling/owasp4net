@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="SQL\instnwnd.sql" />
+    <None Remove="SQL\ReadonlyUser.sql" />
+    <None Remove="SQL\TestTable.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="SQL\instnwnd.sql" />
+    <Content Include="SQL\ReadonlyUser.sql" />
+    <Content Include="SQL\TestTable.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\owasp4net.injection.domain\owasp4net.injection.domain.csproj" />
+  </ItemGroup>
+
+</Project>
