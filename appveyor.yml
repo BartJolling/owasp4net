@@ -14,13 +14,13 @@ before_build:
   # Display minimal restore text
   - cmd: dotnet restore ./owasp4net.injection.domain/owasp4net.injection.domain.csproj --verbosity m
   - cmd: dotnet restore ./owasp4net.injection.data/owasp4net.injection.data.csproj --verbosity m
-  - cmd: dotnet restore ./owasp4net/owasp4net.injection/owasp4net.injection.csproj --verbosity m
+  - cmd: dotnet restore ./owasp4net.injection/owasp4net.injection.csproj --verbosity m
 
 build_script:
   # output will be in ./src/bin/debug/netcoreapp2.2/publish
   - cmd: dotnet build ./owasp4net.injection.domain/owasp4net.injection.domain.csproj
   - cmd: dotnet build ./owasp4net.injection.data/owasp4net.injection.data.csproj
-  - cmd: dotnet build ./owasp4net/owasp4net.injection/owasp4net.injection.csproj
+  - cmd: dotnet build ./owasp4net.injection/owasp4net.injection.csproj
 after_build:
   # For once the build has completed
 clone_depth: 1
