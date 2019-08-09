@@ -1,0 +1,32 @@
+version: '1.0.{build}'
+image: Visual Studio 2017
+branches:
+  only:
+  - master
+init:
+  # Good practise, because Windows line endings are different from Unix/Linux ones
+  - cmd: git config --global core.autocrlf true
+install:
+  # Install repo specific stuff here
+before_build:
+  # Display .NET Core version
+  - cmd: dotnet --version
+  # Display minimal restore text
+  - cmd: dotnet restore ./owasp4net.injection.domain/owasp4net.injection.domain.csproj --verbosity m
+  - cmd: dotnet restore ./owasp4net.injection.data/owasp4net.injection.data.csproj --verbosity m
+  - cmd: dotnet restore ./owasp4net/owasp4net.injection/owasp4net.injection.csproj --verbosity m
+
+build_script:
+  # output will be in ./src/bin/debug/netcoreapp2.2/publish
+  - cmd: dotnet build ./owasp4net.injection.domain/owasp4net.injection.domain.csproj
+  - cmd: dotnet build ./owasp4net.injection.data/owasp4net.injection.data.csproj
+  - cmd: dotnet build ./owasp4net/owasp4net.injection/owasp4net.injection.csproj
+after_build:
+  # For once the build has completed
+clone_depth: 1
+test_script:
+  # restore packages for our unit tests
+  # run the unit tests (requires changing into the test directory)
+on_finish :
+  # any cleanup in here
+deploy: off
