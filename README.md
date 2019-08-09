@@ -1,5 +1,5 @@
 # owasp4net
-![Build status](https://ci.appveyor.com/api/projects/status/mhide6x1lha3aakw?svg=true)
+[![Build status](https://ci.appveyor.com/api/projects/status/mhide6x1lha3aakw?svg=true)](https://ci.appveyor.com/project/BartJolling55144/owasp4net)
 ![GitHub issues](https://img.shields.io/github/issues/BartJolling/owasp4net)
 ![GitHub forks](https://img.shields.io/github/forks/BartJolling/owasp4net)
 ![GitHub stars](https://img.shields.io/github/stars/BartJolling/owasp4net)
