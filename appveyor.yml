@@ -19,7 +19,7 @@ build_script:
 after_build:
   # For once the build has completed
 artifacts:
- - path: '\src\bin\Debug\netcoreapp2.2\publish'
+ - path: 'owasp4net.injection\bin\Debug\netcoreapp2.2\publish\'
    name: WebSite
    type: WebDeployPackage  
 clone_depth: 1
