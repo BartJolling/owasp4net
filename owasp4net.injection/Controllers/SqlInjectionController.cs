@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using owasp4net.injection.data;
 using owasp4net.injection.domain;
 using owasp4net.injection.Models;

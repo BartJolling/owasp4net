@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
+#nullable disable
+
 namespace owasp4net.injection.Models
 {
     public class CustomerViewModel
@@ -39,3 +41,5 @@ namespace owasp4net.injection.Models
         public string Fax { get; set; }
     }
 }
+
+#nullable enable

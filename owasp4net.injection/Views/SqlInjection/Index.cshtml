@@ -5,68 +5,76 @@
 }
 
 <h2>Products</h2>
-<h3>@ViewData["Url"]</h3>
+<p class="bg-light rounded-3">@ViewData["Url"]</p>
 <p>
     @Html.ActionLink("Filter on Category 1", "Index", new { CategoryID = "1"})
 </p>
+
 <table class="table">
-    <tr>
-        <th>Product ID</th>
-        <th>Product Name</th>
-        <th>Supplier ID</th>
-        <th>Category ID</th>
-        <th>Quantity Per Unit</th>
-        <th>UnitPrice</th>
-        <th>Units In Stock</th>
-        <th>Units On Order</th>
-        <th>Reorder Level</th>
-        <th>Discontinued</th>
-    </tr>
-
-    @foreach(var item in Model) {
-    <tr>
-        <td>@item.ProductID</td>
-        <td>@item.ProductName</td>
-        <td>@item.SupplierID</td>
-        <td>@item.CategoryID</td>
-        <td>@item.QuantityPerUnit</td>
-        <td>@item.UnitPrice</td>
-        <td>@item.UnitsInStock</td>
-        <td>@item.UnitsOnOrder</td>
-        <td>@item.ReorderLevel</td>
-        <td>@item.Discontinued</td>
-        <td>
-            @*@Html.ActionLink("Edit", "Edit", new {.id = item.PrimaryKey}) |
-                @Html.ActionLink("Details", "Details", new {.id = item.PrimaryKey}) |
-                @Html.ActionLink("Delete", "Delete", new {.id = item.PrimaryKey})*@
-        </td>
-    </tr>
-    }
-
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Supplier ID</th>
+            <th>Category ID</th>
+            <th>Quantity Per Unit</th>
+            <th>UnitPrice</th>
+            <th>Units In Stock</th>
+            <th>Units On Order</th>
+            <th>Reorder Level</th>
+            <th>Discontinued</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductID</td>
+                <td>@item.ProductName</td>
+                <td>@item.SupplierID</td>
+                <td>@item.CategoryID</td>
+                <td>@item.QuantityPerUnit</td>
+                <td>@item.UnitPrice</td>
+                <td>@item.UnitsInStock</td>
+                <td>@item.UnitsOnOrder</td>
+                <td>@item.ReorderLevel</td>
+                <td>@item.Discontinued</td>
+            </tr>
+        }
+    </tbody>
 </table>
-<p>
-    <h3>Vulnerabilities Discovery</h3>
-    <ol>
-        <li>@Html.ActionLink("Validate 'productname' column name", "Index", new {CategoryID = "1 OR productname = ''"})</li>
-        <li>@Html.ActionLink("Validate 'Products' table name", "Index", new {CategoryID = "1 OR 1=(SELECT COUNT(*) FROM Products)"})</li>
-        <li>@Html.ActionLink("Validate 'Customers' table name", "Index", new {CategoryID = "1 OR 1=(SELECT COUNT(*) FROM Customers)"})</li>
-        <li>@Html.ActionLink("Check UPDATE permission", "Index", new {CategoryID = "1;UPDATE Products SET productname = productname"})</li>
-    </ol>
-    <h3>Extract Data</h3>
-    <ol>
-        <li>@Html.ActionLink("Transfer Table Names", "Index", new {CategoryID = "1;INSERT INTO Products(productname) select name from sys.tables"})</li>
-        <li>@Html.ActionLink("Transfer Customer Data", "Index", new {CategoryID = "1;INSERT INTO Products(productname) SELECT companyname FROM Customers"})</li>
-        <li>@Html.ActionLink("Retrieve Transferred Data", "Index", new {CategoryID = "500 OR CategoryID IS NULL"})</li>
-    </ol>
-    <h3>Delete Data</h3>
-    <ol>
-        <li>@Html.ActionLink("Clean Customer Data", "Index", new {CategoryID = "1;DELETE Products WHERE CategoryID IS NULL"})</li>
-    </ol>
-    <h3>Guidelines</h3>
-    <ol>
-        <li>@Html.ActionLink("Input Validation - Cannot append SQL Statements", "InputValidation", new {CategoryID = "1 OR productname = ''"})</li>
-        <li>@Html.ActionLink("Read-Only User - Cannot Transfer Data", "ReadOnlyUser", new {CategoryID = "1;INSERT INTO Products(productname) SELECT companyname FROM Customers"})</li>
-        <li>@Html.ActionLink("SQL Parameters - Cannot execute data", "SQLParameters", new {CategoryID = "1 OR productname = ''"})</li>
-        <li>@Html.ActionLink("All Guidelines Combined", "Safe", new {CategoryID = "1 OR productname = ''"})</li>
-    </ol>
-</p>
+
+<div>
+    <div>
+        <h4>Vulnerabilities Discovery</h4>
+        <ol>
+            <li>@Html.ActionLink("Validate 'productname' column name", "Index", new {CategoryID = "1 OR productname = ''"})</li>
+            <li>@Html.ActionLink("Validate 'Products' table name", "Index", new {CategoryID = "1 OR 1=(SELECT COUNT(*) FROM Products)"})</li>
+            <li>@Html.ActionLink("Validate 'Customers' table name", "Index", new {CategoryID = "1 OR 1=(SELECT COUNT(*) FROM Customers)"})</li>
+            <li>@Html.ActionLink("Check UPDATE permission", "Index", new {CategoryID = "1;UPDATE Products SET productname = productname"})</li>
+        </ol>
+    </div>
+    <div>
+        <h4>Extract Data</h4>
+        <ol>
+            <li>@Html.ActionLink("Transfer Table Names", "Index", new {CategoryID = "1;INSERT INTO Products(productname) select name from sys.tables"})</li>
+            <li>@Html.ActionLink("Transfer Customer Data", "Index", new {CategoryID = "1;INSERT INTO Products(productname) SELECT companyname FROM Customers"})</li>
+            <li>@Html.ActionLink("Retrieve Transferred Data", "Index", new {CategoryID = "500 OR CategoryID IS NULL"})</li>
+        </ol>
+    </div>
+    <div>
+        <h4>Delete Data</h4>
+        <ol>
+            <li>@Html.ActionLink("Clean Customer Data", "Index", new {CategoryID = "1;DELETE Products WHERE CategoryID IS NULL"})</li>
+        </ol>
+    </div>
+    <div>
+        <h4>Guidelines</h4>
+        <ol>
+            <li>@Html.ActionLink("Input Validation - Cannot append SQL Statements", "InputValidation", new {CategoryID = "1 OR productname = ''"})</li>
+            <li>@Html.ActionLink("Read-Only User - Cannot Transfer Data", "ReadOnlyUser", new {CategoryID = "1;INSERT INTO Products(productname) SELECT companyname FROM Customers"})</li>
+            <li>@Html.ActionLink("SQL Parameters - Cannot execute data", "SQLParameters", new {CategoryID = "1 OR productname = ''"})</li>
+            <li>@Html.ActionLink("All Guidelines Combined", "Safe", new {CategoryID = "1 OR productname = ''"})</li>
+        </ol>
+    </div>
+</div>

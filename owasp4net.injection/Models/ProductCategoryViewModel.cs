@@ -1,4 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
+#nullable disable
+
 namespace owasp4net.injection.Models
 {
     public class ProductCategoryViewModel
@@ -7,3 +10,5 @@ namespace owasp4net.injection.Models
         public string CategoryId { get; set; }
     }
 }
+
+#nullable enable

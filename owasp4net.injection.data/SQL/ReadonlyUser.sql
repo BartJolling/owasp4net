@@ -1,6 +1,7 @@
 ﻿USE [master]
 GO
 
+IF EXISTS (SELECT * FROM sys.server_principals WHERE name = N'readonly')
 DROP LOGIN [readonly]
 GO
 
@@ -10,7 +11,7 @@ GO
 USE [Northwind]
 GO
 
-DROP USER [readonly]
+DROP USER IF EXISTS [readonly]
 GO
 
 CREATE USER [readonly] FOR LOGIN [readonly] WITH DEFAULT_SCHEMA=[dbo]

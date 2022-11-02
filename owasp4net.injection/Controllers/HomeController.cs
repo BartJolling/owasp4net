@@ -1,26 +1,32 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using owasp4net.injection.Models;
+using System.Diagnostics;
 
 namespace owasp4net.injection.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }
+
         public IActionResult Index()
         {
             return View();
         }
-        
-        public IActionResult About()
-        {
-            ViewData["Message"] = "About OWASP 4 .NET";
 
+        public IActionResult Privacy()
+        {
             return View();
         }
 
-        public IActionResult Contact()
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
         {
-            ViewData["Message"] = "Contact page.";
-
-            return View();
-        }        
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
     }
 }

@@ -1,7 +1,7 @@
-﻿using owasp4net.injection.domain;
+﻿using Microsoft.Data.SqlClient;
+using owasp4net.injection.domain;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 
 namespace owasp4net.injection.data
 {

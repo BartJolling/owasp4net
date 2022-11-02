@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Mvc;
 using owasp4net.injection.data;
 using owasp4net.injection.domain;
 using owasp4net.injection.Models;
-using System;
 using System.Net;
 
 namespace owasp4net.injection.Controllers

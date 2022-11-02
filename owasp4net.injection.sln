@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.757
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "owasp4net.injection.domain", "owasp4net.injection.domain\owasp4net.injection.domain.csproj", "{02B30611-1A21-4F5E-8243-F13819C3E6ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "owasp4net.injection", "owasp4net.injection\owasp4net.injection.csproj", "{B4920347-E951-4797-8E4C-E9118EBC2371}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "owasp4net.injection.data", "owasp4net.injection.data\owasp4net.injection.data.csproj", "{0441D6B3-95B0-470D-97C7-1CFAF86B3761}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "owasp4net.injection.domain", "owasp4net.injection.domain\owasp4net.injection.domain.csproj", "{8B7CD0AA-903A-4E30-89A2-AF74CC1B1E85}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "owasp4net.injection", "owasp4net.injection\owasp4net.injection.csproj", "{7CCC7723-67F7-4128-B24B-E36D3F1D170B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "owasp4net.injection.data", "owasp4net.injection.data\owasp4net.injection.data.csproj", "{4E37A1F0-D0FD-4B97-AE94-8CED14549744}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,23 +15,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{02B30611-1A21-4F5E-8243-F13819C3E6ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{02B30611-1A21-4F5E-8243-F13819C3E6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{02B30611-1A21-4F5E-8243-F13819C3E6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{02B30611-1A21-4F5E-8243-F13819C3E6ED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0441D6B3-95B0-470D-97C7-1CFAF86B3761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0441D6B3-95B0-470D-97C7-1CFAF86B3761}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0441D6B3-95B0-470D-97C7-1CFAF86B3761}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0441D6B3-95B0-470D-97C7-1CFAF86B3761}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7CCC7723-67F7-4128-B24B-E36D3F1D170B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7CCC7723-67F7-4128-B24B-E36D3F1D170B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7CCC7723-67F7-4128-B24B-E36D3F1D170B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7CCC7723-67F7-4128-B24B-E36D3F1D170B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4920347-E951-4797-8E4C-E9118EBC2371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4920347-E951-4797-8E4C-E9118EBC2371}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4920347-E951-4797-8E4C-E9118EBC2371}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4920347-E951-4797-8E4C-E9118EBC2371}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B7CD0AA-903A-4E30-89A2-AF74CC1B1E85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B7CD0AA-903A-4E30-89A2-AF74CC1B1E85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B7CD0AA-903A-4E30-89A2-AF74CC1B1E85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B7CD0AA-903A-4E30-89A2-AF74CC1B1E85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E37A1F0-D0FD-4B97-AE94-8CED14549744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E37A1F0-D0FD-4B97-AE94-8CED14549744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E37A1F0-D0FD-4B97-AE94-8CED14549744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E37A1F0-D0FD-4B97-AE94-8CED14549744}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {DD4DBF19-1AFF-4240-892C-503F34F1D9C5}
+		SolutionGuid = {277D25AB-CBD8-4405-8332-D1B1F6FDA646}
 	EndGlobalSection
 EndGlobal
