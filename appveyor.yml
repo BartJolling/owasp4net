@@ -1,5 +1,5 @@
 version: '1.0.{build}'
-image: Visual Studio 2017
+image: Visual Studio 2022
 branches:
   only:
   - master
@@ -14,12 +14,12 @@ before_build:
   # Display minimal restore text
   - cmd: dotnet restore ./owasp4net.injection/owasp4net.injection.csproj --verbosity m
 build_script:
-  # output will be in ./src/bin/debug/netcoreapp2.2/publish
-  - cmd: dotnet publish ./owasp4net.injection/owasp4net.injection.csproj
+  # output will be in ./bin/release/net6.0/publish
+  - cmd: dotnet publish -c Release ./owasp4net.injection/owasp4net.injection.csproj
 after_build:
   # For once the build has completed
 artifacts:
- - path: 'owasp4net.injection\bin\Debug\netcoreapp2.2\publish\'
+ - path: 'owasp4net.injection\bin\Release\net6.0\publish\'
    name: WebSite
    type: WebDeployPackage  
 clone_depth: 1
